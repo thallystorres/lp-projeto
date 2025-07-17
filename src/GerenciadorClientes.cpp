@@ -1,5 +1,5 @@
 #include "GerenciadorClientes.hpp"
-
+#include "Utils.hpp"
 void GerenciadorClientes::adicionarCliente(const string& nome, const string& cpf, const string& endereco)
 {
     this->clientes.emplace_back(this->proximoClienteId++, nome, cpf, endereco);
@@ -20,14 +20,5 @@ Cliente* GerenciadorClientes::buscarClientePorId(int id)
 
 void GerenciadorClientes::listarClientes() const
 {
-    cout << "\n--- LISTA DE CLIENTES ---\n";
-    if(this->clientes.empty())
-    {
-        cout << "Nenhum cliente cadastrado.\n";
-    }
-    for(const auto& cliente : this->clientes)
-    {
-        cliente.mostrarDados();
-    }
-    cout << "-------------------\n";
+    listarItens("LISTA DE CLIENTES", this->clientes);
 }

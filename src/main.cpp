@@ -1,4 +1,4 @@
-#include "Menu.hpp"
+#include "Utils.hpp"
 
 int main() {
     Cardapio cardapio;
@@ -7,7 +7,7 @@ int main() {
 
     int opcao;
     do {
-        exibirMenuPrincipal();
+        exibirUtilsPrincipal();
         cin >> opcao;
 
         if (cin.fail()) {
@@ -22,10 +22,10 @@ int main() {
 
         switch (opcao) {
             case 1:
-                logicaMenuCardapio(cardapio);
+                logicaUtilsCardapio(cardapio);
                 break;
             case 2:
-                logicaMenuClientes(clientesManager);
+                logicaUtilsClientes(clientesManager);
                 break;
             case 3:
                 logicaRealizarPedido(pedidosManager, cardapio, clientesManager);

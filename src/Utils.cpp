@@ -7,7 +7,7 @@
 #include "Comanda.hpp"
 #include "GerenciadorClientes.hpp"
 
-void exibirMenuPrincipal() {
+void exibirUtilsPrincipal() {
     cout << "\n========================================\n";
     cout << "   SISTEMA DE GESTÃO DE RESTAURANTE   \n";
     cout << "========================================\n";
@@ -19,7 +19,7 @@ void exibirMenuPrincipal() {
     cout << "Escolha uma opção: ";
 }
 
-void exibirSubMenuCardapio() {
+void exibirSubUtilsCardapio() {
     cout << "\n--- Gerenciar Cardápio ---\n";
     cout << "1. Adicionar Categoria\n";
     cout << "2. Adicionar Produto\n";
@@ -34,7 +34,7 @@ void limparBufferEntrada() {
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
 }
 
-void exibirSubMenuClientes() {
+void exibirSubUtilsClientes() {
     cout << "\n--- Gerenciar Clientes ---\n";
     cout << "1. Cadastrar Novo Cliente\n";
     cout << "2. Listar Todos os Clientes\n";
@@ -42,10 +42,10 @@ void exibirSubMenuClientes() {
     cout << "Escolha uma opção: ";
 }
 
-void logicaMenuClientes(GerenciadorClientes& clientesManager) {
+void logicaUtilsClientes(GerenciadorClientes& clientesManager) {
     int opcao;
     do {
-        exibirSubMenuClientes();
+        exibirSubUtilsClientes();
         cin >> opcao;
 
         if (cin.fail()) {
@@ -73,7 +73,7 @@ void logicaMenuClientes(GerenciadorClientes& clientesManager) {
                 clientesManager.listarClientes();
                 break;
             case 0:
-                cout << "Voltando ao menu principal...\n";
+                cout << "Voltando ao Menu principal...\n";
                 break;
             default:
                 cout << "Opção inválida. Tente novamente.\n";
@@ -170,10 +170,10 @@ void logicaRealizarPedido(Comanda& pedidosManager, Cardapio& cardapio, Gerenciad
     }
 }
 
-void logicaMenuCardapio(Cardapio& cardapio) {
+void logicaUtilsCardapio(Cardapio& cardapio) {
     int opcao;
     do {
-        exibirSubMenuCardapio();
+        exibirSubUtilsCardapio();
         cin >> opcao;
 
         if (cin.fail()) {
@@ -226,7 +226,7 @@ void logicaMenuCardapio(Cardapio& cardapio) {
                     break;
                 }
                 case 0:
-                    cout << "Voltando ao menu principal...\n";
+                    cout << "Voltando ao Menu principal...\n";
                     break;
                 default:
                     cout << "Opção inválida. Tente novamente.\n";

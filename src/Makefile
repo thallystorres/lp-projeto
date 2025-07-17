@@ -31,7 +31,7 @@ SOURCES = main.cpp \
           Pagamento.cpp \
 		  GerenciadorClientes.cpp \
 		  Comanda.cpp \
-		  Menu.cpp
+		  Utils.cpp
 
 # Gera automaticamente a lista de arquivos objeto (.o) a partir dos fontes (.cpp)
 OBJECTS = $(SOURCES:.cpp=.o)

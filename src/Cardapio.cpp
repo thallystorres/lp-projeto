@@ -1,5 +1,5 @@
 #include "Cardapio.hpp"
-
+#include "Utils.hpp"
 void Cardapio::adicionarCategoria(const string &nome)
 {
     this->categorias.emplace_back(this->proximaCategoriaId++, nome);
@@ -20,17 +20,7 @@ Categoria *Cardapio::buscarCategoriaPorId(int id)
 
 void Cardapio::listarCategorias() const
 {
-    cout << "\n--- CATEGORIAS DISPONÍVEIS ---\n";
-    if (this->categorias.empty())
-    {
-        cout << "Nenhuma categoria cadastrada.\n";
-        return;
-    }
-    for (const auto &categoria : this->categorias)
-    {
-        categoria.mostrarDados();
-    }
-    cout << "--------------------\n";
+    listarItens("CATEGORIAS DISPONÍVEIS", this->categorias);
 }
 
 void Cardapio::adicionarProduto(const string &nome, double preco, int categoriaId)
@@ -61,17 +51,7 @@ Produto *Cardapio::buscarProdutoPorId(int id)
 
 void Cardapio::listarProdutos() const 
 {
-    cout << "\n--- CARDÁPIO COMPLETO ---\n";
-    if(this->produtos.empty())
-    {
-        cout << "Nenhum produto cadastrado.\n";
-        return;
-    }
-    for(const auto& produto : this->produtos)
-    {
-        produto.mostrarDados();
-    }
-    cout << "------------------\n";
+    listarItens("CARDÁPIO COMPLETO", this->produtos);
 }
 
 void Cardapio::removerProduto(int id)
