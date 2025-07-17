@@ -1,11 +1,12 @@
+```mermaid
 classDiagram
     class Pessoa {
         -int id
         -string nome
         -string cpf
-        +Pessoa(int id, const string &amp;nome, const string &amp;cpf)
+        +Pessoa(int id, string nome, string cpf)
         +mostrarDados() void
-        +setNome(const string&amp; nome) void
+        +setNome(string nome) void
         +getId() int
         +getNome() string
         +getCpf() string
@@ -13,27 +14,27 @@ classDiagram
 
     class Cliente {
         -string endereco
-        -vector&lt;Pedido&gt; pedidos
-        +Cliente(int id, const string &amp;nome, const string &amp;cpf, const string&amp; endereco)
+        -vector~Pedido~ pedidos
+        +Cliente(int id, string nome, string cpf, string endereco)
         +getEndereco() string
         +mostrarDados() void
-        +adicionarPedido(const Pedido&amp; pedido) void
+        +adicionarPedido(Pedido pedido) void
     }
 
     class Funcionario {
         -string cargo
         -double salario
-        +Funcionario(int id, const string&amp; nome,const  string&amp; cpf,const  string&amp; cargo, double salario)
+        +Funcionario(int id, string nome, string cpf, string cargo, double salario)
         +mostrarDados() void
     }
 
     class Categoria {
         -int id
         -string nome
-        +Categoria(int id, const string&amp; nome)
+        +Categoria(int id, string nome)
         +getId() int
         +getNome() string
-        +mostrarDados() const void
+        +mostrarDados() void
     }
 
     class Produto {
@@ -41,26 +42,26 @@ classDiagram
         -string nome
         -double preco
         -Categoria* categoria
-        +Produto(int id, const string &amp;nome, double preco, Categoria *categoria)
+        +Produto(int id, string nome, double preco, Categoria* categoria)
         +getId() int
         +getNome() string
         +getPreco() double
         +getCategoria() Categoria*
-        +mostrarDados() const void
+        +mostrarDados() void
     }
 
     class Pedido {
         -int id
         -string data
-        -vector&lt;Produto *&gt; produtos
+        -vector~Produto*~ produtos
         -Pagamento pagamento
         -StatusPedido status
-        +Pedido(int id, const string &amp;data)
-        +getPagamento() Pagamento&amp;
+        +Pedido(int id, string data)
+        +getPagamento() Pagamento
         +marcarComoPago() void
-        +adicionarProduto(Produto *produto) void
+        +adicionarProduto(Produto* produto) void
         +calcularTotal() double
-        +mostrarDados() const void
+        +mostrarDados() void
     }
 
     class Pagamento {
@@ -68,36 +69,36 @@ classDiagram
         -string metodo
         -bool efetuado
         +Pagamento(int idPedido)
-        +processarPagamento(const string &amp;metodoPagamento, double valor) void
-        +mostrarDados() const void
+        +processarPagamento(string metodoPagamento, double valor) void
+        +mostrarDados() void
     }
     
     class Cardapio {
-        -vector&lt;Categoria&gt; categorias
-        -vector&lt;Produto&gt; produtos
+        -vector~Categoria~ categorias
+        -vector~Produto~ produtos
         -int proximaCategoriaId
         -int proximoProdutoId
-        +adicionarCategoria(const string&amp; nome) void
+        +adicionarCategoria(string nome) void
         +buscarCategoriaPorId(int id) Categoria*
-        +listarCategorias() const void
-        +adicionarProduto(const string &amp;nome, double preco, int categoriaId) void
+        +listarCategorias() void
+        +adicionarProduto(string nome, double preco, int categoriaId) void
         +buscarProdutoPorId(int id) Produto*
-        +listarProdutos() const void
+        +listarProdutos() void
         +removerProduto(int id) void
     }
 
     class GerenciadorClientes {
-        -vector&lt;Cliente&gt; clientes
+        -vector~Cliente~ clientes
         -int proximoClienteId
-        +adicionarCliente(const string&amp; nome, const string&amp; cpf, const string&amp; endereco) void
+        +adicionarCliente(string nome, string cpf, string endereco) void
         +buscarClientePorId(int id) Cliente*
-        +listarClientes() const void
+        +listarClientes() void
     }
 
     class Comanda {
-        -vector&lt;Pedido&gt; todosOsPedidos
+        -vector~Pedido~ todosOsPedidos
         -int proximoPedidoId
-        +registrarPedido(const Pedido&amp; pedido) void
+        +registrarPedido(Pedido pedido) void
         +getProximoId() int
     }
 
